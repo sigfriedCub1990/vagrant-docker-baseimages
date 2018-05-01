@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-MAINTAINER Torben Knerr <mail@tknerr.de>
+MAINTAINER sigfried<sigfried@nowhere.de>
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -11,7 +11,10 @@ RUN apt-get update && apt-get install -y \
     lsb-release \
     openssh-server \
     sudo \
-    python
+    python \
+
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN apt-get install -y nodejs
 
 # ensure we have the en_US.UTF-8 locale available
 RUN locale-gen en_US.UTF-8
